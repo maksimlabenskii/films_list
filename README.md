@@ -7,14 +7,17 @@
 ## Структура БД
 ### Таблица "countries"
 |     Поле     | Тип Данных |      Атрибут     |     Описание    |
+------------------------------------------------------------------
 |  country_id  |   INTEGER  |         -        |  Первичный ключ |
 | counrty_name |    TEXT    |  NOT NULL UNIQUE | Название страны |
 ### Таблица "genres"
 |     Поле     | Тип Данных |      Атрибут     |    Описание    |
+-----------------------------------------------------------------
 |   genre_id   |   INTEGER  |         -        | Первичный ключ |
 |  genre_name  |    TEXT    |  NOT NULL UNIQUE | Название жанра |
 ### Таблица "directors"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |   director_id    |   INTEGER  |     -     |   Первичный ключ  |
 |  name_director   |    TEXT    |  NOT NULL |   Имя режиссера   |
 | surname_director |    TEXT    |  NOT NULL | Фамилия режиссера |
@@ -22,6 +25,7 @@
 Дополнительно: UNIQUE (name_director, surname_director)
 ### Таблица "actors"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |     actor_id     |   INTEGER  |     -     |   Первичный ключ  |
 |    name_actor    |    TEXT    |  NOT NULL |     Имя актера    |
 |   surname_actor  |    TEXT    |  NOT NULL |   Фамилия актера  |
@@ -29,6 +33,7 @@
 Дополнительно: UNIQUE (name_actor, surname_actor)
 ### Таблица "movies"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |     movie_id     |   INTEGER  |     -     |   Первичный ключ  |
 |      title       |    TEXT    |  NOT NULL |  Название фильма  |
 |     duration     |    TEXT    |  NOT NULL |    Длительность   |
@@ -38,6 +43,7 @@
 Дополнительно: UNIQUE (title, year_of_release, country_id)
 ### Таблица "actor_cast"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |     actor_id     |   INTEGER  |  NOT NULL |     ID актера     |
 |     movie_id     |   INTEGER  |  NOT NULL |     ID фильма     |
 Дополнительно: 
@@ -46,6 +52,7 @@ FOREIGN KEY (actor_id) REFERENCES actors(actor_id),
 UNIQUE (actor_id, movie_id)
 ### Таблица "genre_cast"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |     genre_id     |   INTEGER  |  NOT NULL |      ID жанра     |
 |     movie_id     |   INTEGER  |  NOT NULL |     ID фильма     |
 Дополнительно: 
@@ -54,6 +61,7 @@ FOREIGN KEY (genre_id) REFERENCES genres(genre_id) ON DELETE CASCADE,
 UNIQUE (genre_id, movie_id)
 ### Таблица "director_cast"
 |      Поле        | Тип Данных |  Атрибут  |      Описание     |
+-----------------------------------------------------------------
 |   director_id    |   INTEGER  |  NOT NULL |    ID режиссера   |
 |     movie_id     |   INTEGER  |  NOT NULL |     ID фильма     |
 Дополнительно: 
